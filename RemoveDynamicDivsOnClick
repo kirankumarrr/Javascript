@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html><head>
+</head>
+<body>
+<script >
+// Example case. 
+document.body.innerHTML = `
+<div class="main">
+<div class="image">
+  <img src="https://goo.gl/kjzfbE" alt="First">
+  <button class="remove">X</button>
+</div>
+<div class="image">
+  <img src="https://goo.gl/d2JncW" alt="Second">
+  <button class="remove">X</button>
+</div>
+</div>`;
+var _RemoveBtn = document.getElementsByClassName("remove");
+for(var i=0 ;  i<_RemoveBtn.length ; i++){
+	_RemoveBtn[i].addEventListener('click',sample,false);
+}
+function sample(event){
+	var parent = event.currentTarget.parentNode;
+		parent.parentNode.removeChild(parent);
+}
+</script>
+</body>
+</html>
