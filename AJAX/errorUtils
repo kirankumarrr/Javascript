@@ -1,0 +1,27 @@
+/**
+ * @method : extractErrorMessage,
+ * @param {Object} error error object which may have response, request or message itself 
+ * @return {string} error message
+*/
+export const extractErrorMessage = (error) => {
+          let collectErrorMessage = "";
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            // console.log(error.response.data);
+            // console.log(error.response.status);
+            // console.log(error.response.headers);
+            collectErrorMessage = `Problem with Response ${error.response.status}`;
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the
+            // browser and an instance of
+            // http.ClientRequest in node.js
+            collectErrorMessage = `Problem with Response ${error.request}`;
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            collectErrorMessage = error.message;
+          }
+          return collectErrorMessage;
+        };
+        
